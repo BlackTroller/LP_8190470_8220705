@@ -1,11 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/cFiles/main.c to edit this template
- */
-
 /* 
  * File:   main.c
- * Author: pedro
+ * Author: Pedro Miguel de Andrade Ribeiro 8190470
+ *  Diogo Henrique Ramos Miranda 8220705
  *
  * Created on 9 de dezembro de 2022, 19:12
  */
