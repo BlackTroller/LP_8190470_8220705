@@ -13,7 +13,7 @@
  * 
  */
 int main(int argc, char** argv) {
-
-    return (EXIT_SUCCESS);
+ //preciso de ver a ficha 07 do meu netbeans
+    return 0;
 }
 
