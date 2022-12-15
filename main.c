@@ -13,7 +13,6 @@
  * 
  */
 int main(int argc, char** argv) {
- //preciso de ver a ficha 07 do meu netbeans
     return 0;
 }
 

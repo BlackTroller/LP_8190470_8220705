@@ -17,11 +17,11 @@ void cleanInputBuffer() {
 
 int obterInt(int minValor, int maxValor, char *msg) {
     int valor;
-    printf(msg);
+    printf("\n%s", msg);
     while (scanf("%d", &valor) != 1 || valor < minValor || valor > maxValor) {
         puts(VALOR_INVALIDO);
         cleanInputBuffer();
-        printf(msg);
+        printf("%s", msg);
     }
     cleanInputBuffer();
     return valor;
@@ -29,11 +29,11 @@ int obterInt(int minValor, int maxValor, char *msg) {
 
 float obterFloat(float minValor, float maxValor, char *msg) {
     float valor;
-    printf(msg);
+    printf("\n%s", msg);
     while (scanf("%f", &valor) != 1 || valor < minValor || valor > maxValor) {
         puts(VALOR_INVALIDO);
         cleanInputBuffer();
-        printf(msg);
+        printf("%s", msg);
     }
     cleanInputBuffer();
     return valor;

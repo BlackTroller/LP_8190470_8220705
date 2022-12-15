@@ -1,8 +1,10 @@
 /* 
- * File:   input.h
- * Author: pedro
- *
- * Created on 14 de dezembro de 2022, 14:36
+ * @File:   input.h
+ * @Author: pedro
+ * @date December 14, 2022, 14:36 PM
+ * @brief Biblioteca de inputs
+ * 
+ * Contêm também as prototipagens das funções que são acedidas pelo ficheiro main.c
  */
 
 #ifndef INPUT_H
