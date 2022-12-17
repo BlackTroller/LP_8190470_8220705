@@ -1,8 +1,10 @@
 /* 
- * File:   users.h
- * Author: pedro
- *
- * Created on 15 de dezembro de 2022, 15:27
+ * @file:   users.h
+ * @author: Pedro Ribeiro
+ * @date December 15, 2022, 3:27 PM
+ * @brief 
+ * 
+ * contem o CRUD dos users
  */
 
 #ifndef USERS_H

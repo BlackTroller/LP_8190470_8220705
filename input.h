@@ -1,6 +1,6 @@
 /* 
- * @File:   input.h
- * @Author: pedro
+ * @file:   input.h
+ * @author: Pedro Ribeiro
  * @date December 14, 2022, 14:36 PM
  * @brief Biblioteca de inputs
  * 
