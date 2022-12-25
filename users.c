@@ -340,7 +340,6 @@ int numberDeletedUsers(Users users) {
 }
 
 
-
 /**
  * Imprime o menu da gestão de utilizadores
  */

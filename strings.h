@@ -24,6 +24,7 @@
 #define MSG_CURRENT_VALUE "Valor atual: "
 #define MSG_SUCCESSFUL_SAVE "Guardado com sucesso."
 #define MSG_SUCESSFUL_LOADING "Carregado com sucesso."
+#define MSG_NEW_FILE_CREATED "Foi criado um ficheiro, pois não havia um."
 
 
 #define INVALID_OPTION "Opção inválida."
