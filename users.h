@@ -69,6 +69,7 @@ void updateUsers(Users *Users);
 void deleteUsers(Users *users);
 
 int numberActiveUsers(Users users);
+int numberDeletedUsers(Users users);
 void incrementUserTotalOrders(User *user);
 
 //FILE
