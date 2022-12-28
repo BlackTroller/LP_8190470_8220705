@@ -10,9 +10,9 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-int getInt(int minValue, int maxValue, char msg);
-float getFloat(float minValue, float maxValue, char msg);
-void getString(char string, unsigned int size, char msg);
+int getInt(int minValue, int maxValue, char *msg);
+float getFloat(float minValue, float maxValue, char *msg);
+void getString(char string, unsigned int size, char *msg);
 void changeIntValueArray(int type, int minValue, int maxValue, int arr);
 void changeFloatValueArray(int type, float minValue, float maxValue, float arr);
 
