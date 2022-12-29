@@ -24,9 +24,6 @@
  * @param priceTables tabela de preços
  * @return O valor calculado da taxa de mão de obra 
  */
-float calculateLaborTax(int type, PriceTables priceTables) {
-    return priceTables.priceTables[type].laborTax * 2;
-}
 
 /**
  * Calcula o valor dos custos fixos
@@ -34,9 +31,7 @@ float calculateLaborTax(int type, PriceTables priceTables) {
  * @param priceTables tabela de preços
  * @return O valor calculado dos custos fixos
  */
-float calculateFixedCosts(int type, PriceTables priceTables) {
-    return priceTables.priceTables[type].fixedCosts;
-}
+
 
 /**
  * Calcula a porcentagem do calçado pelo seus respetivo tamanho
@@ -45,11 +40,8 @@ float calculateFixedCosts(int type, PriceTables priceTables) {
  * @param priceTables tabela de preços
  * @return O valor calculado do tamanho
  */
-float calculateSize(int type, int size, PriceTables priceTables) {
-    int differenceValue = MAX_SIZE_VALUE_TABLE - MIN_SIZE_VALUE_TABLE;
-    int sizePosition = size - MAX_SIZE_VALUE_TABLE + differenceValue;
-    return priceTables.priceTables[type].sizes[sizePosition];
-}
+
+
 
 /**
  * Calcula o valor da margem de lucro
@@ -57,9 +49,7 @@ float calculateSize(int type, int size, PriceTables priceTables) {
  * @param priceTables tabela de preços
  * @return O valor calculado da margem de lucro
  */
-float calculateProfitMargin(int type, PriceTables priceTables) {
-    return (1 + priceTables.priceTables[type].profitMargin);
-}
+
 
 /**
  * Calcula o preço final aplicando todas as taxas
@@ -69,12 +59,8 @@ float calculateProfitMargin(int type, PriceTables priceTables) {
  * @param priceTables tabela de preços
  * @return o preço final daquele pedido
  */
-float calculatePrice(int quantity, int type, int size, PriceTables priceTables) {
+float calculatePrice(int quantity, PriceTables priceTables) {
     float price = 0;
-    price = calculateLaborTax(type, priceTables);
-    price += calculateFixedCosts(type, priceTables);
-    price *= calculateSize(type, size, priceTables);
-    price *= calculateProfitMargin(type, priceTables);
     return price * quantity;
 }
 
@@ -112,14 +98,13 @@ void expandOrders(Orders *orders) {
 Item createItem(int code, int position, Articles articles, PriceTables priceTables) {
     Item item;
     item.articleCode = code;
-    int type = articles.articles[position].type;
     int minSize = getArticleMinSize(articles.articles[position]);
     int maxSize = getArticleMaxSize(articles.articles[position]);
     printf("\nTamanho mínimo: %d", minSize);
     printf("\nTamanho máximo: %d", maxSize);
     item.size = getInt(minSize, maxSize, "Escolha o tamanho que deseja: ");
     item.quantity = getInt(ORDER_MIN_QUANTITY, ORDER_MAX_QUANTITY, MSG_GET_QUANTITY);
-    item.price = calculatePrice(item.quantity, type, item.size, priceTables);
+    item.price = calculatePrice(item.quantity, priceTables);
     puts("\nEncomendado com sucesso.");
     return item;
 }

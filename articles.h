@@ -41,9 +41,6 @@
 
 // TYPEDEF
 
-typedef enum {
-    Sapatos, Sandálias, Botas
-} Types;
 
 typedef struct {
     int min, max;
@@ -52,7 +49,6 @@ typedef struct {
 typedef struct {
     int code;
     char name[MAX_ARTICLE_NAME];
-    Types type; // 0 - Sapatos, 1 - Sandálias, 2 - Botas
     Sizes sizes;
     int sold;
 } Article;

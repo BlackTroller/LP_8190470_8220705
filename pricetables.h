@@ -26,19 +26,10 @@
 #define MAX_VALUE_TAXES 99
 #define MIN_VALUE_TAXES 0
 
-// LABOR TAXES €
-#define MSG_GET_LABOR_TAX "Insira o novo preço de mão de obra por peça (MAX 99€): "
-#define LABOR_TAXES_SIZE 3
-
 // FIXED COSTS €
 #define FIXED_COSTS_SIZE 3
 #define MSG_GET_FIXED_COSTS "Insira o novo preço de custos fixos por par (MAX: 99€): "
 
-// PROFIT MARGINS %
-#define PROFIT_MARGIN_SIZE 3
-#define MIN_VALUE_PROFIT_MARGIN 0
-#define MAX_VALUE_PROFIT_MARGIN 1
-#define MSG_GET_PROFIT_MARGIN "Insira a nova porcentagem para a margem de lucro (MAX: 1): "
 
 #define PRICE_TABLE_DB_FILE "prices.csv"
 
@@ -56,8 +47,6 @@
 
 typedef struct {
     char name[MAX_NAME_SIZE];
-    int laborTax, fixedCosts; // piece; pair
-    float sizes[SIZES_SIZE], profitMargin;
 } PriceTable;
 
 typedef struct {
@@ -72,9 +61,6 @@ void loadPriceTables(PriceTables *priceTables, char *file);
 void savePriceTables(PriceTables priceTables, char *file);
 
 // Updates like java sets
-void updateLaborTax(PriceTables *priceTables, int type);
-void updateFixedCosts(PriceTables *priceTables, int type);
-void updateProfitMargin(PriceTables *priceTables, int type);
 void updateSize(PriceTables *priceTables, int type, int sizePosition);
 void printPriceTables(PriceTables priceTables);
 

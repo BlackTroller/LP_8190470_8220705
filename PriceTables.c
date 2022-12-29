@@ -21,7 +21,7 @@
  * @param priceTable linha de valores
  * @param priceTables tabela de preços final
  */
-void createPriceTables(PriceTables *priceTable, PriceTables *priceTables) {
+void createPriceTables(PriceTable priceTable, PriceTables *priceTables) {
     priceTables->priceTables[priceTables->counter] = priceTable;
     priceTables->counter++;
 }
@@ -56,21 +56,8 @@ void loadPriceTables(PriceTables *priceTables, char *file) {
 
         sp = strtok(line, ",");
         strcpy(tempPriceTable.name, sp);
-
+        
         sp = strtok(NULL, ",");
-        tempPriceTable.laborTax = atoi(sp);
-
-        sp = strtok(NULL, ",");
-        tempPriceTable.fixedCosts = atoi(sp);
-
-        for (int i = 0; i <= SIZES_SIZE; i++) {
-            sp = strtok(NULL, ",");
-            tempPriceTable.sizes[i] = atof(sp);
-        }
-
-        sp = strtok(NULL, ",");
-        tempPriceTable.profitMargin = atof(sp);
-
         createPriceTables(tempPriceTable, priceTables);
     }
     fclose(fp);
@@ -100,18 +87,11 @@ void savePriceTables(PriceTables priceTables, char *file) {
 
 
     for (int i = 0; i < MAX_SIZE_TYPES; i++) {
-        fprintf(fp2, "%s,%d,%d,", priceTables.priceTables[i].name,
-                priceTables.priceTables[i].laborTax,
-                priceTables.priceTables[i].fixedCosts);
-
-        for (int j = 0; j <= SIZES_SIZE; j++) {
-            fprintf(fp2, "%.2f,", priceTables.priceTables[i].sizes[j]);
-        }
-
-        fprintf(fp2, "%.2f", priceTables.priceTables[i].profitMargin);
+        fprintf(fp2, "%s", priceTables.priceTables[i].name);
+    
         fprintf(fp2, "\n");
-
     }
+    
     fclose(fp2);
     puts(MSG_SUCCESSFUL_SAVE);
 }
@@ -121,47 +101,6 @@ void savePriceTables(PriceTables priceTables, char *file) {
  * @param priceTables tabela de preços
  * @param type tipo de calçado
  */
-void updateLaborTax(PriceTables *priceTables, int type) {
-    priceTables->priceTables[type].laborTax =
-            getInt(MIN_VALUE_TAXES, MAX_VALUE_TAXES, MSG_GET_LABOR_TAX);
-    puts(UPDATE_SUCESSFUL);
-}
-
-/**
- * Atualiza o valor dos custos fixos para o respectivo tipo de calçado
- * @param priceTables tabela de preços
- * @param type tipo de calçado
- */
-void updateFixedCosts(PriceTables *priceTables, int type) {
-    priceTables->priceTables[type].fixedCosts =
-            getInt(MIN_VALUE_TAXES, MAX_VALUE_TAXES, MSG_GET_FIXED_COSTS);
-    puts(UPDATE_SUCESSFUL);
-}
-
-/**
- * Atualiza o valor da margem de lucro para o respectivo tipo de calçado
- * @param priceTables tabela de preços
- * @param type tipo de calçado
- */
-void updateProfitMargin(PriceTables *priceTables, int type) {
-    priceTables->priceTables[type].profitMargin =
-            getFloat(MIN_VALUE_PROFIT_MARGIN, MAX_VALUE_PROFIT_MARGIN,
-            MSG_GET_PROFIT_MARGIN);
-    puts(UPDATE_SUCESSFUL);
-}
-
-/**
- * Atualiza o valor do tamanho para o respectivo tipo de calçado
- * @param priceTables tabela de preços
- * @param type tipo de calçado
- * @param sizePosition posição no array do tamanho escolhido
- */
-void updateSize(PriceTables *priceTables, int type, int sizePosition) {
-    priceTables->priceTables[type].sizes[sizePosition] =
-            getFloat(MIN_SIZE_PERCENTAGE_VALUE, MAX_SIZE_PERCENTAGE_VALUE,
-            MSG_GET_SIZE_PERCENTAGE_VALUE);
-    puts(UPDATE_SUCESSFUL);
-}
 
 /**
  * Imprime a tabela de preços
@@ -170,16 +109,10 @@ void updateSize(PriceTables *priceTables, int type, int sizePosition) {
 void printPriceTables(PriceTables priceTables) {
     // Headers
     for (int i = 0; i < MAX_SIZE_TYPES; i++) {
-        printf("\n%s %d€ %d€ %.2f%% ",
-                priceTables.priceTables[i].name,
-                priceTables.priceTables[i].laborTax,
-                priceTables.priceTables[i].fixedCosts,
-                priceTables.priceTables[i].profitMargin);
+        printf("\n%s %d€ %d€ %.2f%% ");
+        priceTables.priceTables[i].name;
         
-        for (int j = 0; j <= SIZES_SIZE; j++) {
-            printf("%.2f%% ", priceTables.priceTables[i].sizes[j]);
-        }
-    }
+   } 
 }
 
 /**
@@ -199,7 +132,7 @@ int printPriceTablesMenu() {
 
 
 /**
- * Imprime o menu do tipo de calçados
+ * Imprime o menu do tipo 
  * @param priceTables tabela de preços
  * @return o valor escolhido pelo utilizador
  */
@@ -216,10 +149,7 @@ int printTypeMenu(PriceTables priceTables) {
  * @return o valor escolhido pelo utilizador
  */
 int printChangeValuesMenu() {
-    printf("\n1. Taxas de mão de obra (peça).");
     printf("\n2. Taxas de custos fixos (par).");
-    printf("\n3. Tamanhos");
-    printf("\n4. Margens de lucro.");
     printf("\n0. Sair.");
     return getInt(MIN_MENU_OPTIONS, MAX_MENU_OPTIONS, MSG_GET_OPTION);
 }
