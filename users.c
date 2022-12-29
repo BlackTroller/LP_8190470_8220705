@@ -109,7 +109,7 @@ void printUser(User user) {
  * Caso a lista não tenha nenhum cliente em memória, é apresentada uma mensagem.
  * @param users variável do tipo users 
  */
-void printUsers(Users users) {
+void printUsers(Users *users) {
     if (users.counter > 0) {
         int i;
         for (i = 0; i < users.counter; i++) {
@@ -307,7 +307,7 @@ void incrementUserTotalOrders(User *user) {
 };
 
 /**
- * Procura os clientes que estão ativos
+ * Procura os clientes que estão ativos ou seja que n foram desativados
  * @param users
  * @return a quantidade de clientes ativos
  */
@@ -324,7 +324,7 @@ int numberActiveUsers(Users users) {
 
 
 /**
- * Procura os clientes que foram removidos
+ * Procura os clientes que foram removidos neste caso desativados
  * @param users variável do tipo users
  * @return a quantidade de clientes removidos
  */
@@ -345,7 +345,7 @@ int numberDeletedUsers(Users users) {
  */
 void printUsersMenu() {
 
-    printf("\n--- Gestão de Utilizadores ---");
+    printf("\n--- Menu de Gestão de Utilizadores ---");
     printf("\n1. - Inserir");
     printf("\n2. - Procurar");
     printf("\n3. - Atualizar");
