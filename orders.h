@@ -43,6 +43,7 @@ typedef struct {
 typedef struct {
     int counter, size;
     Order *orders;
+    int isRemoved;
 } Orders;
 
 
@@ -50,6 +51,7 @@ void setupOrders(Orders *orders);
 void freeOrders(Orders *orders);
 void saveOrders(Orders orders, char *file);
 int loadOrders(Orders *orders, char *file);
+void deleteOrders(Orders *orders);
 
 
 // FUNCTIONS

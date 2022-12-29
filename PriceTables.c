@@ -97,12 +97,6 @@ void savePriceTables(PriceTables priceTables, char *file) {
 }
 
 /**
- * Atualiza o valor da taxa de mão de obra para o respectivo tipo de calçado
- * @param priceTables tabela de preços
- * @param type tipo de calçado
- */
-
-/**
  * Imprime a tabela de preços
  * @param priceTables tabela de preços
  */
