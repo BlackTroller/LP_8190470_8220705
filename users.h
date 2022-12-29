@@ -64,7 +64,7 @@ typedef struct{
 void createUsers(Users *users);
 void searchUsers(Users users);
 int searchUser(Users users, int code);
-void printUsers(Users *users);
+void printUsers(Users users);
 void updateUsers(Users *users);
 void deleteUsers(Users *users);
 

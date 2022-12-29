@@ -109,7 +109,7 @@ void printUser(User user) {
  * Caso a lista não tenha nenhum cliente em memória, é apresentada uma mensagem.
  * @param users variável do tipo users 
  */
-void printUsers(Users *users) {
+void printUsers(Users users) {
     if (users.counter > 0) {
         int i;
         for (i = 0; i < users.counter; i++) {
