@@ -96,11 +96,11 @@ int loadUsers(Users *users, char *file) {
 void printUser(User user) {
     printf("\nCódigo: %d", user.code);
     printf("\nNome: %s", user.name);
-    printf("\nNome: %s", user.address);
+    printf("\nMorada: %s", user.address);
     printf("\nNIF: %d", user.nif);
     printf("\nPaís: %s", user.country);
     printf("\nNº total de encomendas: %d", user.totalOrders);
-    printf("\nApagado?: %d", user.isRemoved);
+    printf("\nDesativado?: %d", user.isRemoved);
     puts("\n");
 }
 
@@ -191,7 +191,7 @@ int createUser(Users *users) {
 void updateUser(User *user) {
     puts("\n");
     getString(user->name, MAX_USER_NAME, MSG_GET_USER_NAME);
-    getString(user->name, MAX_USER_ADDRESS, MSG_GET_USER_ADDRESS);
+    getString(user->address, MAX_USER_ADDRESS, MSG_GET_USER_ADDRESS);
     user->nif = getInt(MIN_SIZE_NIF, MAX_SIZE_NIF, MSG_GET_USER_NIF);
     getString(user->country, MAX_COUNTRY_NAME, MSG_GET_USER_COUNTRY);
     printf(UPDATE_SUCESSFUL);
