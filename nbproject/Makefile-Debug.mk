@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/PriceTables.o \
+	${OBJECTDIR}/articles.o \
 	${OBJECTDIR}/input.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/orders.o \
@@ -70,6 +71,11 @@ ${OBJECTDIR}/PriceTables.o: PriceTables.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PriceTables.o PriceTables.c
+
+${OBJECTDIR}/articles.o: articles.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c99 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/articles.o articles.c
 
 ${OBJECTDIR}/input.o: input.c
 	${MKDIR} -p ${OBJECTDIR}

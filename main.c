@@ -270,23 +270,6 @@ int main(int argc, char** argv) {
                                             printf("\nNº de clientes removidos: %d", numberDeletedUsers(users));
                                             printf("\n");
                                             break;
-                                        case (4):
-                                            // Número de vendas de cada tipo
-                                            for (int i = 0; i <= MAX_TYPE; i++) {
-                                                switch (i) {
-                                                    case(0):
-                                                        printf("\nNº de vendas sapatos: %d", getSoldQuantityType(i, articles));
-                                                        break;
-                                                    case(1):
-                                                        printf("\nNº de vendas sandálias: %d", getSoldQuantityType(i, articles));
-                                                        break;
-                                                    case(2):
-                                                        printf("\nNº de vendas botas: %d", getSoldQuantityType(i, articles));
-                                                        break;
-                                                }
-                                            }
-                                            printf("\n");
-                                            break;
                                         default:
                                             puts(INVALID_OPTION);
                                     }

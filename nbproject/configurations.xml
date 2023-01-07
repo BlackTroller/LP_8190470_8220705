@@ -19,6 +19,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>PriceTables.c</itemPath>
+      <itemPath>articles.c</itemPath>
       <itemPath>input.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>orders.c</itemPath>
@@ -50,6 +51,8 @@
         </cTool>
       </compileType>
       <item path="PriceTables.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="articles.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="articles.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -94,6 +97,8 @@
         </asmTool>
       </compileType>
       <item path="PriceTables.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="articles.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="articles.h" ex="false" tool="3" flavor2="0">
       </item>
