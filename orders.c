@@ -18,51 +18,7 @@
 #include "input.h"
 #include "pricetables.h"
 
-/**
- * Calcula o valor das taxas de mão de obra
- * @param type tipo do calçado
- * @param priceTables tabela de preços
- * @return O valor calculado da taxa de mão de obra 
- */
 
-/**
- * Calcula o valor dos custos fixos
- * @param type tipo do calçado
- * @param priceTables tabela de preços
- * @return O valor calculado dos custos fixos
- */
-
-
-/**
- * Calcula a porcentagem do calçado pelo seus respetivo tamanho
- * @param type tipo do calçado
- * @param size tamanho escolhido
- * @param priceTables tabela de preços
- * @return O valor calculado do tamanho
- */
-
-
-
-/**
- * Calcula o valor da margem de lucro
- * @param type tipo do caçado
- * @param priceTables tabela de preços
- * @return O valor calculado da margem de lucro
- */
-
-
-/**
- * Calcula o preço final aplicando todas as taxas
- * @param quantity quantidade de calçados que o cliente comprou
- * @param type tipo do calçado comprado pelo cliente
- * @param size tamanho do calçado comprado pelo cliente
- * @param priceTables tabela de preços
- * @return o preço final daquele pedido
- */
-float calculatePrice(int quantity, PriceTables priceTables) {
-    float price = 0;
-    return price * quantity;
-}
 
 /**
  * Esta função inicializa o array (orders) com memória dinâmica da estrutura Orders
@@ -72,6 +28,16 @@ void setupOrders(Orders *orders) {
     orders->orders = (Order*) malloc(ORDERS_INITIAL_SIZE * sizeof (Order));
     orders->counter = 0;
     orders->size = ORDERS_INITIAL_SIZE;
+}
+/**
+ * Esta função remove o utilizador consoante alguns parametros
+ * @param orders
+ */
+
+void deleteOrders(Orders *orders) {
+    orders->isRemoved = 1;
+    printf(DELETE_SUCESSFUL);
+    puts("\n");
 }
 
 /**
@@ -87,6 +53,11 @@ void expandOrders(Orders *orders) {
     }
 }
 
+float calculatePrice(int quantity, PriceTables priceTables) {
+    float price = 0;
+    return price; quantity;
+}
+
 /**
  * Cria um item da encomenda faça às escolhas do cliente
  * @param code código do artigo comprado pelo cliente
@@ -98,11 +69,6 @@ void expandOrders(Orders *orders) {
 Item createItem(int code, int position, Articles articles, PriceTables priceTables) {
     Item item;
     item.articleCode = code;
-    int minSize = getArticleMinSize(articles.articles[position]);
-    int maxSize = getArticleMaxSize(articles.articles[position]);
-    printf("\nTamanho mínimo: %d", minSize);
-    printf("\nTamanho máximo: %d", maxSize);
-    item.size = getInt(minSize, maxSize, "Escolha o tamanho que deseja: ");
     item.quantity = getInt(ORDER_MIN_QUANTITY, ORDER_MAX_QUANTITY, MSG_GET_QUANTITY);
     item.price = calculatePrice(item.quantity, priceTables);
     puts("\nEncomendado com sucesso.");
@@ -177,7 +143,6 @@ void printOrdersResume(Orders orders) {
     for (int i = 0; i < orders.orders[orders.counter - 1].counter; i++) {
         printf("\nCódigo do artigo: %d", orders.orders[orders.counter - 1].itens[i].articleCode);
         printf("\nQuantidade: %d", orders.orders[orders.counter - 1].itens[i].quantity);
-        printf("\nTamanho: %d", orders.orders[orders.counter - 1].itens[i].size);
         printf("\nPreço: %.2f€", orders.orders[orders.counter - 1].itens[i].price);
         printf("\n");
     }

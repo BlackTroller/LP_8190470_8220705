@@ -97,21 +97,13 @@ void savePriceTables(PriceTables priceTables, char *file) {
 }
 
 /**
- * Atualiza o valor da taxa de mão de obra para o respectivo tipo de calçado
- * @param priceTables tabela de preços
- * @param type tipo de calçado
- */
-
-/**
  * Imprime a tabela de preços
  * @param priceTables tabela de preços
  */
 void printPriceTables(PriceTables priceTables) {
     // Headers
     for (int i = 0; i < MAX_SIZE_TYPES; i++) {
-        printf("\n%s %d€ %d€ %.2f%% ");
-        priceTables.priceTables[i].name;
-        
+        printf("\n%s", priceTables.priceTables[i].name);      
    } 
 }
 
