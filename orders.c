@@ -53,6 +53,11 @@ void expandOrders(Orders *orders) {
     }
 }
 
+float calculatePrice(int quantity, PriceTables priceTables) {
+    float price = 0;
+    return price; quantity;
+}
+
 /**
  * Cria um item da encomenda faça às escolhas do cliente
  * @param code código do artigo comprado pelo cliente
@@ -64,9 +69,6 @@ void expandOrders(Orders *orders) {
 Item createItem(int code, int position, Articles articles, PriceTables priceTables) {
     Item item;
     item.articleCode = code;
-    int minSize = getArticleMinSize(articles.articles[position]);
-    int maxSize = getArticleMaxSize(articles.articles[position]);
-    item.size = getInt(minSize, maxSize, "Escolha o tamanho que deseja: ");
     item.quantity = getInt(ORDER_MIN_QUANTITY, ORDER_MAX_QUANTITY, MSG_GET_QUANTITY);
     item.price = calculatePrice(item.quantity, priceTables);
     puts("\nEncomendado com sucesso.");
@@ -141,7 +143,6 @@ void printOrdersResume(Orders orders) {
     for (int i = 0; i < orders.orders[orders.counter - 1].counter; i++) {
         printf("\nCódigo do artigo: %d", orders.orders[orders.counter - 1].itens[i].articleCode);
         printf("\nQuantidade: %d", orders.orders[orders.counter - 1].itens[i].quantity);
-        printf("\nTamanho: %d", orders.orders[orders.counter - 1].itens[i].size);
         printf("\nPreço: %.2f€", orders.orders[orders.counter - 1].itens[i].price);
         printf("\n");
     }

@@ -57,12 +57,13 @@ void deleteOrders(Orders *orders);
 // FUNCTIONS
 Item createItem(int code, int position, Articles articles, PriceTables priceTables);
 
+
+
 void createOrder(Item item, Order *order);
 void addFinalInfoToOrder(int clientCode, float price, Order *order);
 float getTotalPriceOrder(Order order);
 void printOrder(Order order);
 
-void createOrders(Order order, Orders *orders);
 void createOrders(Order order, Orders *orders);
 void printOrdersResume(Orders orders);
 void printAllOrders(Orders orders);

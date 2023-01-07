@@ -103,9 +103,7 @@ void savePriceTables(PriceTables priceTables, char *file) {
 void printPriceTables(PriceTables priceTables) {
     // Headers
     for (int i = 0; i < MAX_SIZE_TYPES; i++) {
-        printf("\n%s %d€ %d€ %.2f%% ");
-        priceTables.priceTables[i].name;
-        
+        printf("\n%s", priceTables.priceTables[i].name);      
    } 
 }
 
