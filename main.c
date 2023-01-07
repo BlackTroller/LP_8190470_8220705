@@ -35,8 +35,8 @@ int main(int argc, char** argv) {
     
     int chooseProfileOption, listingsOption,
             adminOption, articlesOption, usersOption,
-            tablePriceOption, typeOption, loadToMemoryPriceTables = 0,
-            changeTableValueOption,clientOption, buyOption;
+            tablePriceOption, loadToMemoryPriceTables = 0,
+            clientOption, buyOption;
     char askAdminPW[MAX_ADM_PASSWORD];
     int checkLoadingUsers = 0;
     
@@ -223,40 +223,12 @@ int main(int argc, char** argv) {
                                             // Exit
                                             break;
                                         case 1:
-                                            // Update
-                                            typeOption = printTypeMenu(priceTables);
-                                            changeTableValueOption = printChangeValuesMenu();
-                                            switch (changeTableValueOption) {
-                                                case(1):
-                                                    // LABOR TAX
-                                                    updateLaborTax(&priceTables, typeOption);
-                                                    break;
-                                                case(2):
-                                                    // Fixed Costs
-                                                    updateFixedCosts(&priceTables, typeOption);
-                                                    break;
-                                                case(3):
-                                                    // Sizes Menu
-                                                    sizeOption = getInt(MIN_MAIN_MENU,
-                                                            SIZES_SIZE, MSG_GET_SIZE);
-                                                    updateSize(&priceTables, typeOption,
-                                                            sizeOption);
-                                                    break;
-                                                case(4):
-                                                    // Profit Margin
-                                                    updateProfitMargin(&priceTables, typeOption);
-                                                    break;
-                                                default:
-                                                    puts(INVALID_OPTION);
-                                            }
-                                            break;
-                                        case 2:
                                             printPriceTables(priceTables);
                                             break;
-                                        case 3:
+                                        case 2:
                                             loadPriceTables(&priceTables, PRICE_TABLE_DB_FILE);
                                             break;
-                                        case 4:
+                                        case 3:
                                             savePriceTables(priceTables, PRICE_TABLE_DB_FILE);
                                             break;
                                     }

@@ -113,15 +113,12 @@ void printPriceTables(PriceTables priceTables) {
  */
 int printPriceTablesMenu() {
     printf("\n--- Gestão da Tabela de Preços ---");
-    printf("\n1. - Atualizar");
-    printf("\n2. - Listar");
-    printf("\n3. - Carregar");
-    printf("\n4. - Guardar");
+    printf("\n1. - Listar");
+    printf("\n2. - Carregar");
+    printf("\n3. - Guardar");
     printf("\n0 - Sair");
     return getInt(MIN_MAIN_MENU, MAX_MAIN_MENU, MSG_GET_OPTION);
 }
-
-
 
 /**
  * Imprime o menu do tipo 
