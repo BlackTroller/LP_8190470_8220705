@@ -71,6 +71,8 @@ void deleteUsers(Users *users);
 int numberActiveUsers(Users users);
 int numberDeletedUsers(Users users);
 void incrementUserTotalOrders(User *user);
+int userWithMostOrders(Users users);
+int userWithFewerOrders(Users users);
 
 //FILE
 void setupUsers(Users *users);

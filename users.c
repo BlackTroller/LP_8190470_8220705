@@ -306,6 +306,43 @@ void incrementUserTotalOrders(User *user) {
     user->totalOrders += 1;
 };
 
+
+/**
+ * Procura o utilizador com o maior número de encomendas
+ * @param users variável do tipo users
+ * @return o código do utilizador com mais encomendas
+ */
+int userWithMostOrders(Users users) {
+    int userCode;
+    int totalOrders = -1;
+    for (int i = 0; i < users.counter; i++) {
+        if (users.users[i].totalOrders > totalOrders) {
+
+            totalOrders = users.users[i].totalOrders;
+            userCode = users.users[i].code;
+        }
+    }
+    return userCode;
+}
+
+/**
+ * Procura o utilizador com o menor número de encomendas
+ * @param users variável do tipo users
+ * @return o código do utilizador com menos encomendas
+ */
+int userWithFewerOrders(Users users) {
+    int userCode;
+    int totalOrders = 2147483647;
+    for (int i = 0; i < users.counter; i++) {
+        if (users.users[i].totalOrders < totalOrders) {
+
+            totalOrders = users.users[i].totalOrders;
+            userCode = users.users[i].code;
+        }
+    }
+    return userCode;
+}
+
 /**
  * Procura os clientes que estão ativos ou seja que n foram desativados
  * @param users
