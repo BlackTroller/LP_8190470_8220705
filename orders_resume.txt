@@ -1,0 +1,10 @@
+
+Código do cliente: 1
+Preço total: 0.00€
+-- Pedidos --
+Código do artigo: 1
+Quantidade: 2
+Tamanho: 0
+Preço: 0.00€
+------------
+

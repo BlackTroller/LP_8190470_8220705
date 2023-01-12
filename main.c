@@ -35,7 +35,8 @@ int main(int argc, char** argv) {
     
     int chooseProfileOption, listingsOption,
             adminOption, articlesOption, usersOption,
-            tablePriceOption, loadToMemoryPriceTables = 0,
+            tablePriceOption, typeOption, loadToMemoryPriceTables = 0,
+            changeTableValueOption, sizeOption,
             clientOption, buyOption;
     char askAdminPW[MAX_ADM_PASSWORD];
     int checkLoadingUsers = 0;
@@ -242,7 +243,7 @@ int main(int argc, char** argv) {
                                     printf("\n---Listagens Propostas --- \n");
                                     puts("1. - Cliente com mais e menos encomendas");
                                     puts("2. - Artigos mais e menos vendido");
-                                    puts("3. - Número de clientes ativos e removidos");
+                                    puts("3. - Número de clientes ativos e desativados");
                                     puts("4. - Número de vendas de cada tipo");
                                     puts("0. - Sair");
                                     printf("\nOpção: ");
